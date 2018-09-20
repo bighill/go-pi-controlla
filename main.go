@@ -22,6 +22,6 @@ func main() {
 	http.HandleFunc("/ws", func(w http.ResponseWriter, r *http.Request) {
 		serveWs(hub, w, r)
 	})
-    
+
     log.Fatal(http.ListenAndServe(HOST, nil))
 }

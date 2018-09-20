@@ -71,8 +71,7 @@ func (c *Client) readPump() {
 			break
 		}
 		message = bytes.TrimSpace(bytes.Replace(message, newline, space, -1))
-        // fmt.Println("trigger--> " + string(message))
-        //wsTrigger(string(message))
+
         pi(string(message))
 
 		c.hub.broadcast <- message

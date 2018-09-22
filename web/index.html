@@ -2,17 +2,19 @@
 <html lang="en">
 <head>
 <title>{{.PageTitle}}</title>
-<link rel="stylesheet" type="text/css" href="/assets/css.css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="/assets/css.css?{{.Timestamp}}">
 </head>
 <body>
 
 <div class="btn-group">
     {{range .Actions}}
-        <div class="btn">{{.Do}}</div>
+        <div class="btn" data-do="{{.Do}}">{{.Do}}</div>
     {{end}}
 </div>
 
-<script src="assets/js.js"></script>
+<script src="assets/js.js?{{.Timestamp}}"></script>
 
 </body>
 </html>

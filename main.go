@@ -3,6 +3,7 @@ package main
 import (
 	"net/http"
     "html/template"
+    "time"
     "log"
 )
 
@@ -11,17 +12,21 @@ const (
     WEB_ROOT = "./web/"
 )
 
+var timestamp = time.Now().Unix()
+
 type Action struct {
     Do string
 }
 
 type WebData struct {
+    Timestamp   int64
     PageTitle   string
     Actions     []Action
 }
 
 func serveIndex(w http.ResponseWriter, r *http.Request) {
     data := WebData {
+        Timestamp: timestamp,
         PageTitle: "go pi controlla",
         Actions: []Action {
             {Do: "on"},

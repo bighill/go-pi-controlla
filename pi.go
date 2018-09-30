@@ -14,12 +14,11 @@ import (
 	"fmt"
 	"github.com/stianeikeland/go-rpio"
 	"os"
-	"time"
 )
 
 const (
-    PIN = rpio.Pin(18)
     PIN18 = rpio.Pin(18)
+    PIN23 = rpio.Pin(23)
 )
 
 func pi(_action string) {
@@ -35,26 +34,21 @@ func pi(_action string) {
 	defer rpio.Close()
 
 	// Set pin to output mode
-	PIN.Output()
+	PIN18.Output()
+	PIN23.Output()
 
-    if _action == "blink" {
-        PIN.Low()
-        for x := 0; x < 6; x++ {
-            PIN.Toggle()
-            time.Sleep(time.Second / 2)
-        }
-    }
-    if _action == "on" {
-        PIN.High()
-    }
-    if _action == "off" {
-        PIN.Low()
-    }
     if _action == "eighteen__on" {
         PIN18.High()
     }
     if _action == "eighteen__off" {
         PIN18.Low()
+    }
+
+    if _action == "twentythree__on" {
+        PIN23.High()
+    }
+    if _action == "twentythree__off" {
+        PIN23.Low()
     }
 
 }

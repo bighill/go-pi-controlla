@@ -15,16 +15,12 @@ const (
 var timestamp = time.Now().Unix()
 
 type Action struct {
-    Do string
-}
-type Deadman struct {
-    DeadDo string
+    Pin string
 }
 type WebData struct {
     Timestamp   int64
     PageTitle   string
     Actions     []Action
-    DeadmanActions     []Deadman
 }
 
 func serveIndex(w http.ResponseWriter, r *http.Request) {
@@ -32,12 +28,8 @@ func serveIndex(w http.ResponseWriter, r *http.Request) {
         Timestamp: timestamp,
         PageTitle: "go pi controlla",
         Actions: []Action {
-            {Do: "on"},
-            {Do: "off"},
-            {Do: "blink"},
-        },
-        DeadmanActions: []Deadman {
-            {DeadDo: "eighteen"},
+            {Pin: "eighteen"},
+            {Pin: "twentythree"},
         },
     }
     index := template.Must(template.ParseFiles(WEB_ROOT + "index.html"))

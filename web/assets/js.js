@@ -22,13 +22,23 @@ const btnEventListeners = btns => {
     for (btn of btns) btnEventListener(btn)
 }
 
-const btnEventListener = btn => btn.addEventListener('click', handleBtnClick)
+const btnEventListener = btn => {
+    btn.addEventListener('mousedown', handleDown)
+    btn.addEventListener('mouseup', handleUp)
+}
 
-const handleBtnClick = ev => conn.send(ev.target.dataset.do)
+const handleDown = ev => conn.send(ev.target.dataset.down)
+const handleUp = ev => conn.send(ev.target.dataset.up)
 
 const init = () => {
     ws()
     btnEventListeners(btns)
+
+    window.oncontextmenu = function(event) {
+     event.preventDefault();
+     event.stopPropagation();
+     return false;
+};
 }
 
 init()

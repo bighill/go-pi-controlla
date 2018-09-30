@@ -12,6 +12,11 @@
     {{range .Actions}}
         <div class="btn" data-do="{{.Do}}">{{.Do}}</div>
     {{end}}
+    {{range .DeadmanActions}}
+        <div class="btn" data-deadon="{{.DeadDo}}__on" data-deadoff="{{.DeadDo}}__off">
+            {{.DeadDo}}
+        </div>
+    {{end}}
 </div>
 
 <script src="assets/js.js?{{.Timestamp}}"></script>

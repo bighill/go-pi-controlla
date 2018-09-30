@@ -19,6 +19,7 @@ import (
 
 const (
     PIN = rpio.Pin(18)
+    PIN18 = rpio.Pin(18)
 )
 
 func pi(_action string) {
@@ -49,4 +50,11 @@ func pi(_action string) {
     if _action == "off" {
         PIN.Low()
     }
+    if _action == "eighteen__on" {
+        PIN18.High()
+    }
+    if _action == "eighteen__off" {
+        PIN18.Low()
+    }
+
 }

@@ -17,11 +17,14 @@ var timestamp = time.Now().Unix()
 type Action struct {
     Do string
 }
-
+type Deadman struct {
+    DeadDo string
+}
 type WebData struct {
     Timestamp   int64
     PageTitle   string
     Actions     []Action
+    DeadmanActions     []Deadman
 }
 
 func serveIndex(w http.ResponseWriter, r *http.Request) {
@@ -32,6 +35,9 @@ func serveIndex(w http.ResponseWriter, r *http.Request) {
             {Do: "on"},
             {Do: "off"},
             {Do: "blink"},
+        },
+        DeadmanActions: []Deadman {
+            {DeadDo: "eighteen"},
         },
     }
     index := template.Must(template.ParseFiles(WEB_ROOT + "index.html"))

@@ -33,12 +33,6 @@ const handleUp = ev => conn.send(ev.target.dataset.up)
 const init = () => {
     ws()
     btnEventListeners(btns)
-
-    window.oncontextmenu = function(event) {
-     event.preventDefault();
-     event.stopPropagation();
-     return false;
-};
 }
 
 init()

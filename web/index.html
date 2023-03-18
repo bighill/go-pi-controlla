@@ -8,13 +8,13 @@
 </head>
 <body>
 
-<div class="btn-group">
     {{range .Actions}}
+<div class="btn-group">
+        {{.Pin}} &nbsp;
         <div class="btn" data-down="{{.Pin}}__on" data-up="{{.Pin}}__off">
-            {{.Pin}}
         </div>
-    {{end}}
 </div>
+    {{end}}
 
 <script src="assets/js.js?{{.Timestamp}}"></script>
 

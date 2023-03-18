@@ -3,34 +3,42 @@
 }
 
 body {
-    padding: 0;
-    margin: 0;
-    height: 100%;
+    padding : 0;
+    margin  : 0;
+    height  : 100%;
 
-    background: black;
-    color: white;
+    background  : black;
+    color       : white;
     font-family : sans-serif;
+
+    user-select           : none;
+    touch-callout         : none;
+    -webkit-touch-callout : none;
 }
 
 .btn-group {
-    display: flex;
+    display         : flex;
+    justify-content : flex-end;
+    align-items     : center;
+    margin          : 3rem;
 }
 
 .btn {
-    background      : #ff8800;
     color           : black;
     font-size       : 22px;
     font-weight     : bold;
     padding         : 1em;
-    margin          : 1em;
     border-radius   : 1em;
-    max-width       : 50vw;
+    border          : 3px solid orange;
+    width           : 200px;
+    height          : 200px;
     text-align      : center;
-    flex-grow       : 1;
     cursor          : pointer;
-    user-select     : none;
+
+    user-select         : none;
+    -webkit-user-select : none;
 }
 
-.btn:hover {
-    background : #ffad00;
+.btn:active {
+    background : orange;
 }
